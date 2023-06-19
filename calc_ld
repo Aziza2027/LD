@@ -1,0 +1,1 @@
+../plink --vcf my_data.vcf --r2 --ld-window-kb 1000 --ld-window 100 --out your_ld_decay_file --double-id --allow-extra-chr
