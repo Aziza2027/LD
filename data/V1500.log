@@ -1,0 +1,27 @@
+PLINK v1.90b7 64-bit (16 Jan 2023)
+Options in effect:
+  --allow-extra-chr
+  --double-id
+  --make-bed
+  --out V1500
+  --vcf v1500.vcf
+
+Hostname: bio
+Working directory: /home/bio/projects/LD/data
+Start time: Tue Jun 20 18:33:26 2023
+
+Random number seed: 1687268006
+15667 MB RAM detected; reserving 7833 MB for main workspace.
+--vcf: V1500-temporary.bed + V1500-temporary.bim + V1500-temporary.fam written.
+1528 variants loaded from .bim file.
+193 people (0 males, 0 females, 193 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to V1500.nosex .
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 193 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.869903.
+1528 variants and 193 people pass filters and QC.
+Note: No phenotypes present.
+--make-bed to V1500.bed + V1500.bim + V1500.fam ... done.
+
+End time: Tue Jun 20 18:33:26 2023

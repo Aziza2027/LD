@@ -1,0 +1,27 @@
+PLINK v1.90b7 64-bit (16 Jan 2023)
+Options in effect:
+  --allow-extra-chr
+  --bfile V1500
+  --ld-window-kb 100
+  --ld-window-r2 0
+  --out ld_results
+  --r2
+
+Hostname: bio
+Working directory: /home/bio/projects/LD/data
+Start time: Tue Jun 20 18:34:06 2023
+
+Random number seed: 1687268046
+15667 MB RAM detected; reserving 7833 MB for main workspace.
+1528 variants loaded from .bim file.
+193 people (0 males, 0 females, 193 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to ld_results.nosex .
+Using up to 8 threads (change this with --threads).
+Before main variant filters, 193 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.869903.
+1528 variants and 193 people pass filters and QC.
+Note: No phenotypes present.
+--r2 to ld_results.ld ... done.
+
+End time: Tue Jun 20 18:34:06 2023
