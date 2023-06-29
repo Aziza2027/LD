@@ -1,0 +1,4 @@
+jupyter nbconvert --to html ./LD_display.ipynb --no-input --output index.html
+git add .
+git commit -m "update"
+git push
