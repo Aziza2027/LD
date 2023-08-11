@@ -1,26 +1,32 @@
-#!/bin/bash
+# #!/bin/bash
 
-# Extract unique values from the CHR column
-vcf_file="in/SNP.vcf"
-chr_names=$(grep -v "^#" "$vcf_file" | cut -f1 | sort | uniq)
+# # Extract unique values from the CHR column
+# vcf_file="in/SNP.vcf"
+# chr_names=$(grep -v "^#" "$vcf_file" | cut -f1 | sort | uniq)
 
-# Iterate over each CHR_NAME
-while IFS= read -r chr_name
-do
-    # Replace "CHR_NAME" in the command with the current CHR_NAME value
-    command="LDBlockShow -InVCF in/SNP.vcf -OutPut out/${chr_name}_outD -Region ${chr_name}:0:300000000 -OutPng -SeleVar 1 -NoShowLDist 1000000000"
-    $command
-    command="LDBlockShow -InVCF in/SNP.vcf -OutPut out/${chr_name}_outR -Region ${chr_name}:0:300000000 -OutPng -SeleVar 2 -NoShowLDist 1000000000"
-    $command
-done <<< "$chr_names"
+# # Iterate over each CHR_NAME
+# while IFS= read -r chr_name
+# do
+#     # Replace "CHR_NAME" in the command with the current CHR_NAME value
+#     command="LDBlockShow -InVCF in/SNP.vcf -OutPut out/${chr_name}_outD -Region ${chr_name}:0:300000000 -OutPng -SeleVar 1 -NoShowLDist 1000000000"
+#     $command
+#     command="LDBlockShow -InVCF in/SNP.vcf -OutPut out/${chr_name}_outR -Region ${chr_name}:0:300000000 -OutPng -SeleVar 2 -NoShowLDist 1000000000"
+#     $command
+# done <<< "$chr_names"
 
-awk -F'\t' 'BEGIN {OFS="\t"} {if (substr($1, 1, 1) == "#") {print $0} else {print "all_chromosome", NR-1, substr($0, index($0, $3))}}' ./in/SNP.vcf  > ./in/SNP_all.vcf
+# awk -F'\t' 'BEGIN {OFS="\t"} {if (substr($1, 1, 1) == "#") {print $0} else {print "all_chromosome", NR-1, substr($0, index($0, $3))}}' ./in/SNP.vcf  > ./in/SNP_all.vcf
 
-LDBlockShow -InVCF in/SNP_all.vcf -OutPut  out/outD   -Region  all_chromosome:0:300000000  -OutPng -SeleVar 1 -NoShowLDist 1000000000
-LDBlockShow -InVCF in/SNP_all.vcf -OutPut  out/outR   -Region  all_chromosome:0:300000000  -OutPng -SeleVar 2 -NoShowLDist 1000000000 # -InGWAS 
-
-
+# LDBlockShow -InVCF in/SNP_all.vcf -OutPut  out/outD   -Region  all_chromosome:0:300000000  -OutPng -SeleVar 1 -NoShowLDist 1000000000
+# LDBlockShow -InVCF in/SNP_all.vcf -OutPut  out/outR   -Region  all_chromosome:0:300000000  -OutPng -SeleVar 2 -NoShowLDist 1000000000 # -InGWAS 
 
 
+
+output_file="./out/sttes.txt"
+
+for file in ./out/*outR.site.gz; do
+    if [ -f "$file" ]; then
+        zcat "$file" >> "$output_file"
+    fi
+done
 
 
